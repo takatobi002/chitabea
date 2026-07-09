@@ -1,0 +1,333 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const news = (await getCollection('news'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 5);
+
+const fmtDate = (d: Date) =>
+  `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}`;
+---
+
+<Base>
+  <!-- TOP -->
+  <section id="top" class="top">
+    <p class="top-greeting">Welcome to chitabea.com</p>
+    <h1 class="top-name-ja">阿部 太一</h1>
+    <p class="top-name-en">Taichi Abe</p>
+
+    <p class="top-catch">【キャッチフレーズ（日本語）】</p>
+    <p class="top-catch-en">Catchphrase in English.</p>
+
+    <div class="top-tags">
+      <span class="top-tag">シリアスレジャー研究</span>
+      <span class="top-tag">消費者行動論</span>
+      <span class="top-tag">SLIM-J</span>
+      <span class="top-tag">福岡大学大学院</span>
+      <span class="top-tag">競技クイズ</span>
+      <span class="top-tag">ギター</span>
+    </div>
+  </section>
+
+  <!-- GREETING -->
+  <section id="greeting">
+    <p class="sec-label">GREETING <span class="sec-label-ja">ごあいさつ</span></p>
+    <h2>はじめまして</h2>
+
+    <p class="greeting-lead">「好きなことに、本気になる人」のことが、ずっと気になっています。</p>
+
+    <p>
+      阿部太一といいます。福岡大学大学院商学研究科の博士後期課程で、<strong>シリアスレジャー</strong>という概念を使いながら、人がどのように趣味や余暇活動にのめり込み、そこにどんな価値が生まれるのかを研究しています。
+    </p>
+    <p>
+      自分自身も10年以上競技クイズにハマり続けており、ギターを弾いたり俳句を詠んだりしながら日々を過ごしています。研究と趣味がゆるやかに重なりながら、気づいたら「ハマること」そのものを仕事にしていました。
+    </p>
+    <p>
+      このサイトでは研究のことも、日々のことも、気ままに発信しています。共同研究のご相談から「面白いですね」というひと言まで、お気軽にご連絡ください。
+    </p>
+  </section>
+
+  <!-- PROFILE -->
+  <section id="profile">
+    <p class="sec-label">PROFILE <span class="sec-label-ja">プロフィール</span></p>
+    <h2>プロフィール</h2>
+
+    <div class="profile-block">
+      <h3>所属・肩書</h3>
+      <ul class="profile-list">
+        <li><span class="year">2025〜</span><span>福岡大学大学院商学研究科 博士後期課程（森田研究室）</span></li>
+        <li><span class="year">2026〜</span><span>筑紫女学園大学 非常勤講師（生活と経済）</span></li>
+        <li><span class="year">2022〜</span><span>乗富鉄工所 ITエンジニア・マーケティング</span></li>
+        <li><span class="year"></span><span>知遊舎 代表（個人事業）</span></li>
+        <li><span class="year"></span><span>Google Gemini Ambassador</span></li>
+      </ul>
+    </div>
+
+    <div class="profile-block">
+      <h3>学歴</h3>
+      <ul class="profile-list">
+        <li><span class="year">2016〜2020</span><span>福岡大学商学部第二部 商学科</span></li>
+        <li><span class="year">2023〜2025</span><span>福岡大学大学院商学研究科 博士前期課程</span></li>
+        <li><span class="year">2025〜</span><span>同 博士後期課程（在籍中）</span></li>
+      </ul>
+    </div>
+
+    <div class="profile-block">
+      <h3>研究キーワード</h3>
+      <ul class="profile-list">
+        <li><span></span><span>シリアスレジャー / Serious Leisure</span></li>
+        <li><span></span><span>消費者行動論</span></li>
+        <li><span></span><span>余暇・観光研究</span></li>
+        <li><span></span><span>SLIM-J（シリアスレジャー測定尺度）</span></li>
+      </ul>
+    </div>
+
+    <div class="profile-block">
+      <h3>リンク</h3>
+      <ul class="profile-list">
+        <li><span></span><a href="#">Researchmap</a></li>
+        <li><span></span><a href="#">ResearchGate</a></li>
+        <li><span></span><a href="#">Google Scholar</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <p class="sec-label">RESEARCH <span class="sec-label-ja">研究</span></p>
+    <h2>研究について</h2>
+
+    <div class="research-intro">
+      <p>
+        「趣味にどっぷりハマった人」は、普通の消費者と何が違うのか——そんな問いから研究をはじめました。カナダの社会学者Robert
+        Stebbinsが提唱した<strong>シリアスレジャー理論</strong>をベースに、日本初の測定尺度
+        <strong>SLIM-J</strong>（72項目・18因子）を開発。「ハマること」を科学的に測りながら、消費行動や社会との関わりを明らかにしていきます。
+      </p>
+    </div>
+
+    <div class="pub-year-group">
+      <div class="pub-year-label">2025</div>
+
+      <div class="pub-item">
+        <span class="pub-type journal">論文</span>
+        <div>
+          <div class="pub-title">SLIM-J：日本語版シリアスレジャー測定尺度の開発と妥当性検証</div>
+          <div class="pub-detail">余暇ツーリズム学会誌</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-type conf">学会</span>
+        <div>
+          <div class="pub-title">「ハマる」の測定：SLIM-Jを用いた消費者関与の定量的アプローチ</div>
+          <div class="pub-detail">日本マーケティング学会カンファレンス2025</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-type conf">学会</span>
+        <div>
+          <div class="pub-title">Poetech Dazaifu：NLP/LLMによる俳句・短歌3,096作品の計量分析</div>
+          <div class="pub-detail">じんもんこん2025 / UDC2025</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-year-group">
+      <div class="pub-year-label">受賞・獲得資金</div>
+
+      <div class="pub-item">
+        <span class="pub-type award">受賞</span>
+        <div>
+          <div class="pub-title">Best Poster Pitch Award</div>
+          <div class="pub-detail">日本マーケティング学会カンファレンス2025</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-type award">受賞</span>
+        <div>
+          <div class="pub-title">学生奨励賞</div>
+          <div class="pub-detail">UDC2025（Poetech Dazaifu）</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-type journal">助成</span>
+        <div>
+          <div class="pub-title">篠原欣子記念財団 奨学金 / 余暇ツーリズム学会 研究助成</div>
+          <div class="pub-detail">2024〜2025年度</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS (最新5件) -->
+  <section id="news">
+    <p class="sec-label">NEWS <span class="sec-label-ja">近況</span></p>
+    <h2>近況・お知らせ</h2>
+
+    <ul class="news-list">
+      {news.map((item) => (
+        <li class="news-item">
+          <span class="news-date">{fmtDate(item.data.date)}</span>
+          <span class="news-text">
+            <span class="news-tag">{item.data.tag}</span>
+            {item.data.title}
+          </span>
+        </li>
+      ))}
+    </ul>
+
+    <p style="margin-top:1.5rem;"><a href="/news">→ すべてのニュースを見る</a></p>
+  </section>
+
+  <!-- OUTREACH -->
+  <section id="outreach">
+    <p class="sec-label">OUTREACH <span class="sec-label-ja">登壇・アウトリーチ</span></p>
+    <h2>講演・登壇</h2>
+
+    <p>講演・登壇・取材のご依頼はお気軽にご連絡ください。</p>
+
+    <div class="outreach-item">
+      <span class="outreach-date">2025.12</span>
+      <div>
+        <div class="outreach-title">じんもんこん2025 発表</div>
+        <div class="outreach-venue">情報処理学会 人文科学とコンピュータ研究会</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERESTS -->
+  <section id="interests">
+    <p class="sec-label">INTERESTS <span class="sec-label-ja">趣味</span></p>
+    <h2>趣味のこと</h2>
+
+    <p>研究対象でもあり、自分自身でもある趣味たちです。</p>
+
+    <div class="interest-block">
+      <h3>🎵 音楽活動</h3>
+      <p>ギターを15年以上弾いています。Vocaloid楽曲も制作しており、YouTubeとニコニコ動画で公開中です。</p>
+      <div class="yt-links">
+        <a href="#" class="yt-link">▶ 楽曲タイトル1（YouTube）</a>
+        <a href="#" class="yt-link">▶ 楽曲タイトル2（YouTube）</a>
+        <a href="#" class="yt-link">▶ 楽曲タイトル3（YouTube）</a>
+        <a href="#" class="yt-link">▶ 楽曲タイトル4（YouTube）</a>
+      </div>
+    </div>
+
+    <div class="interest-block">
+      <h3>⚡ 競技クイズ</h3>
+      <p>
+        10年以上、競技クイズを続けています。プレイヤーとしての経験は、シリアスレジャー研究の自己エスノグラフィーにもなっています。
+      </p>
+      <table class="quiz-table">
+        <thead>
+          <tr><th>年</th><th>大会名</th><th>結果</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2024</td><td>大会名（記入予定）</td><td>—</td></tr>
+          <tr><td>2023</td><td>大会名（記入予定）</td><td>—</td></tr>
+          <tr><td>2022</td><td>大会名（記入予定）</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="interest-block">
+      <h3>🌿 俳句・TRPG</h3>
+      <p>俳句・連句の実践は、Poetech Dazaifu研究とも重なります。TRPGも好きで、シリアスレジャーの格好の観察フィールドです。</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="sec-label">CONTACT <span class="sec-label-ja">お問い合わせ</span></p>
+    <h2>お問い合わせ</h2>
+
+    <p class="contact-body">
+      共同研究・講演依頼・取材・メディア出演のご相談から、<br />
+      「面白いですね」というひと言まで、なんでも歓迎です。<br />
+      お気軽にご連絡ください。
+    </p>
+
+    <div class="contact-links">
+      <a href="mailto:your@email.com" class="contact-link">📧 メールを送る</a>
+      <a href="#" class="contact-link">𝕏 Twitter / X</a>
+      <a href="#" class="contact-link">Researchmap</a>
+    </div>
+
+    <p class="contact-note">
+      ※ お返事には数日いただく場合がございます。<br />
+      ※ 講演・登壇のご依頼は、開催日の1ヶ月前までにご連絡いただけると助かります。
+    </p>
+  </section>
+</Base>
+
+<style>
+  .top {
+    padding-top: 6rem;
+    padding-bottom: 5rem;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .top-greeting { font-size: .8rem; letter-spacing: .15em; color: var(--sub); margin-bottom: 1.5rem; }
+  .top-name-ja { font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.2; }
+  .top-name-en { font-family: var(--serif); font-size: clamp(1.1rem, 2vw, 1.5rem); font-style: italic; color: var(--accent); margin-top: .3rem; margin-bottom: 2.5rem; }
+  .top-catch { font-family: var(--serif); font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.8; border-left: 3px solid var(--accent); padding-left: 1.2rem; margin-bottom: .6rem; }
+  .top-catch-en { font-family: var(--serif); font-style: italic; font-size: .95rem; color: var(--sub); padding-left: 1.2rem; margin-bottom: 2.5rem; }
+  .top-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; }
+  .top-tag { font-size: .7rem; padding: .3rem .8rem; border: 1px solid var(--border); border-radius: 20px; color: var(--sub); background: white; }
+
+  .greeting-lead { font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--accent); line-height: 1.9; margin-bottom: 2rem; }
+
+  .profile-block { margin-bottom: 2rem; }
+  .profile-block h3 { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .8rem; padding-bottom: .4rem; border-bottom: 1px solid var(--border); }
+  .profile-list { list-style: none; }
+  .profile-list li { font-size: .88rem; line-height: 1.7; color: #555; padding: .3rem 0; display: flex; gap: 1rem; }
+  .profile-list .year { color: var(--sub); font-size: .8rem; white-space: nowrap; flex-shrink: 0; width: 80px; }
+
+  .research-intro { background: white; border: 1px solid var(--border); border-left: 4px solid var(--accent); padding: 1.5rem 1.8rem; margin-bottom: 2.5rem; border-radius: 0 6px 6px 0; }
+  .research-intro p { margin: 0; font-size: .93rem; line-height: 1.9; }
+  .pub-year-group { margin-bottom: 2rem; }
+  .pub-year-label { font-size: .72rem; letter-spacing: .12em; color: var(--accent); text-transform: uppercase; margin-bottom: .8rem; font-weight: 500; }
+  .pub-item { padding: .9rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: auto 1fr; gap: .6rem 1rem; align-items: start; }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-type { font-size: .62rem; letter-spacing: .08em; padding: .2rem .55rem; border-radius: 3px; white-space: nowrap; margin-top: .15rem; }
+  .pub-type.journal { background: rgba(74,140,120,.12); color: var(--accent); }
+  .pub-type.conf { background: rgba(212,132,90,.12); color: var(--accent2); }
+  .pub-type.award { background: rgba(212,132,90,.2); color: var(--accent2); }
+  .pub-title { font-size: .9rem; line-height: 1.65; }
+  .pub-detail { font-size: .78rem; color: var(--sub); margin-top: .2rem; }
+
+  .news-list { list-style: none; }
+  .news-item { display: grid; grid-template-columns: 90px 1fr; gap: .5rem 1.2rem; padding: .9rem 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+  .news-item:last-child { border-bottom: none; }
+  .news-date { font-size: .75rem; color: var(--sub); white-space: nowrap; }
+  .news-text { font-size: .88rem; line-height: 1.65; }
+  .news-tag { display: inline-block; font-size: .6rem; padding: .15rem .5rem; border-radius: 3px; margin-right: .4rem; vertical-align: middle; background: rgba(74,140,120,.12); color: var(--accent); }
+
+  .outreach-item { padding: 1.2rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 90px 1fr; gap: .4rem 1.2rem; align-items: start; }
+  .outreach-item:last-child { border-bottom: none; }
+  .outreach-date { font-size: .75rem; color: var(--sub); padding-top: .1rem; }
+  .outreach-title { font-size: .9rem; line-height: 1.6; }
+  .outreach-venue { font-size: .78rem; color: var(--sub); margin-top: .2rem; }
+
+  .interest-block { margin-bottom: 2.5rem; }
+  .interest-block h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; margin-bottom: .8rem; }
+  .yt-links { display: flex; flex-direction: column; gap: .5rem; margin-top: .8rem; }
+  .yt-link { display: flex; align-items: center; gap: .8rem; font-size: .85rem; text-decoration: none; padding: .6rem .9rem; background: white; border: 1px solid var(--border); border-radius: 6px; transition: all .2s; }
+  .yt-link:hover { border-color: var(--accent); background: rgba(74,140,120,.04); }
+  .quiz-table { width: 100%; border-collapse: collapse; font-size: .85rem; margin-top: .8rem; }
+  .quiz-table th { text-align: left; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--sub); padding: .5rem .6rem; border-bottom: 2px solid var(--border); font-weight: 400; }
+  .quiz-table td { padding: .65rem .6rem; border-bottom: 1px solid var(--border); color: #444; line-height: 1.5; }
+  .quiz-table tr:last-child td { border-bottom: none; }
+
+  .contact-body { font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: var(--sub); line-height: 1.9; margin-bottom: 2rem; }
+  .contact-links { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.5rem; }
+  .contact-link { display: inline-flex; align-items: center; gap: .5rem; font-size: .82rem; color: var(--text); text-decoration: none; padding: .6rem 1.2rem; border: 1px solid var(--border); border-radius: 6px; transition: all .2s; background: white; }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-note { font-size: .78rem; color: var(--sub); margin-top: 1.5rem; line-height: 1.8; }
+</style>

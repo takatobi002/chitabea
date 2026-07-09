@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const news = (await getCollection('news'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const fmtDate = (d: Date) =>
+  `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+---
+
+<Base title="NEWS | Taichi Abe / 阿部太一">
+  <section>
+    <p class="sec-label">NEWS <span class="sec-label-ja">近況・お知らせ</span></p>
+    <h2>すべてのニュース</h2>
+
+    <ul class="news-list">
+      {news.map((item) => (
+        <li class="news-item">
+          <span class="news-date">{fmtDate(item.data.date)}</span>
+          <span class="news-text">
+            <span class="news-tag">{item.data.tag}</span>
+            {item.data.title}
+          </span>
+        </li>
+      ))}
+    </ul>
+
+    <p style="margin-top:2rem;"><a href="/">← トップに戻る</a></p>
+  </section>
+</Base>
+
+<style>
+  .news-list { list-style: none; }
+  .news-item { display: grid; grid-template-columns: 110px 1fr; gap: .5rem 1.2rem; padding: .9rem 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+  .news-item:last-child { border-bottom: none; }
+  .news-date { font-size: .75rem; color: var(--sub); white-space: nowrap; }
+  .news-text { font-size: .88rem; line-height: 1.65; }
+  .news-tag { display: inline-block; font-size: .6rem; padding: .15rem .5rem; border-radius: 3px; margin-right: .4rem; vertical-align: middle; background: rgba(74,140,120,.12); color: var(--accent); }
+</style>
